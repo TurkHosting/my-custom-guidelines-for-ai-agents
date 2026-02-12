@@ -1,0 +1,45 @@
+# My Custom Guidelines for AI Agents
+
+Shared guidelines for AI coding agents (Claude Code, Cursor, etc.) used across [TurkHosting](https://github.com/TurkHosting) projects.
+
+## What's Inside
+
+- **`.ai/guidelines/my-custom-guidelines.md`** — Rules for communication, code style, git workflow, and build commands.
+
+## Quick Setup
+
+### Option 1: Shell Function
+
+Add this to your `~/.zshrc`:
+
+```bash
+my-custom-guidelines() {
+  if ! command -v gh &> /dev/null; then
+    echo "Error: GitHub CLI (gh) is not installed."
+    echo "Install it with: brew install gh"
+    return 1
+  fi
+
+  if ! gh auth status &> /dev/null; then
+    echo "Error: GitHub CLI is not authenticated."
+    echo "Run: gh auth login"
+    return 1
+  fi
+
+  mkdir -p .ai/guidelines
+  gh api repos/TurkHosting/my-custom-guidelines-for-ai-agents/contents/.ai/guidelines/my-custom-guidelines.md --jq '.content' | base64 -d > .ai/guidelines/my-custom-guidelines.md
+
+  echo "Custom guidelines added to .ai/guidelines/"
+}
+```
+
+Then run `source ~/.zshrc` and use `my-custom-guidelines` in any project directory.
+
+### Option 2: Claude Code Skill
+
+See the [gist](https://gist.github.com/boranbar/10abba63997bc8a416b7e1620ea0875e) for instructions on setting up a `/my-custom-guidelines` slash command in Claude Code.
+
+## Requirements
+
+- [GitHub CLI (`gh`)](https://cli.github.com/) — `brew install gh`
+- Authenticated with `gh auth login`
