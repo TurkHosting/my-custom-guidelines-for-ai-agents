@@ -1,6 +1,8 @@
 # My Custom Guidelines for AI Agents
 
-Shared guidelines for AI coding agents (Claude Code, Cursor, etc.) used across [TurkHosting](https://github.com/TurkHosting) projects.
+Custom AI guidelines for [Laravel Boost](https://laravel.com/docs/12.x/boost) projects used across [TurkHosting](https://github.com/TurkHosting).
+
+Laravel Boost supports [custom AI guidelines](https://laravel.com/docs/12.x/boost#adding-custom-ai-guidelines) by loading `.md` or `.blade.php` files from your project's `.ai/guidelines/` directory. This repo stores our shared guidelines so they can be pulled into any project.
 
 ## What's Inside
 
