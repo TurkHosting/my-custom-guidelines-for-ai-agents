@@ -4,15 +4,51 @@
 
 Unless I specifically tell you otherwise, always speak to me in English.
 
-**1. Internal Code Standards (English):**
-All code structures must strictly adhere to **English** naming conventions to ensure universal readability.
-* **Scope:** Class names, method names, variable names, database schemas, API endpoints, and internal comments.
-* **Example:** Use `getUserProfile()` instead of `kullaniciProfiliGetir()`.
-
-**2. User Interface & Content (Turkish):**
+**User Interface & Content (Turkish):**
 All user-facing text must be in **Turkish**.
 * **Scope:** UI labels, button text, validation error messages, tooltips, notification bodies, and any string displayed on the frontend.
 * **Example:** A validation message should be *"Lütfen geçerli bir e-posta adresi giriniz"* not *"Please enter a valid email"*.
+
+## Code Standards
+
+### Internal Code Standards (English)
+
+All internal code structures must use English naming conventions to ensure consistency and universal readability.
+
+- **Scope:** Class and type names, methods and functions, variables, constants, database schemas, column names, stored enum or status values, API endpoints, configuration keys, and internal documentation.
+- **Example:** Use `getUserProfile()` instead of `kullaniciProfiliGetir()`; store a status as `completed`, not a translated equivalent.
+- **User-facing exception:** Content displayed to users must use the project's designated display language. This includes UI labels, buttons, validation errors, notifications, and other presented content.
+- Keep internal values separate from their localized labels. For example, store `in_progress` internally and display its translated label to the user.
+- Follow established project conventions for changelogs and commit-message language.
+
+### Comments Inside Functions and Methods
+
+Do not add explanatory comment blocks inside function or method bodies.
+
+- Prefer self-explanatory code, descriptive names, and small focused functions over inline narration.
+- Do not use multi-line comments to document implementation history, decision-making, edge cases, race conditions, or reasoning step by step.
+- When context is genuinely necessary, place it in the language's standard documentation block, architectural documentation, changelog, issue, or commit message.
+- A short inline comment is acceptable only when the logic cannot reasonably be made self-explanatory.
+- Never place paragraph-style explanations between executable statements.
+
+**Avoid:**
+
+```text
+function closeModal() {
+    modal.isOpen = false
+
+    // Do not emit another close event here. The client has already closed the
+    // modal, and a delayed event could close a modal that the user reopened.
+}
+```
+
+**Prefer:**
+
+```text
+function closeModal() {
+    modal.isOpen = false
+}
+```
 
 ## NodeJS Workflow
 
