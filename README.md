@@ -1,12 +1,15 @@
 # My Custom Guidelines for AI Agents
 
-Custom AI guidelines for [Laravel Boost](https://laravel.com/docs/12.x/boost) projects used across [TurkHosting](https://github.com/TurkHosting).
+Custom AI guidelines for [Laravel Boost](https://laravel.com/docs/13.x/boost) projects used across [TurkHosting](https://github.com/TurkHosting).
 
-Laravel Boost supports [custom AI guidelines](https://laravel.com/docs/12.x/boost#adding-custom-ai-guidelines) by loading `.md` or `.blade.php` files from your project's `.ai/guidelines/` directory. This repo stores our shared guidelines so they can be pulled into any project.
+Laravel Boost supports [custom AI guidelines](https://laravel.com/docs/13.x/boost#adding-custom-ai-guidelines) by loading `.md` or `.blade.php` files from your project's `.ai/guidelines/` directory. This repo stores our shared guidelines so they can be pulled into any project.
 
 ## What's Inside
 
 - **`.ai/guidelines/my-custom-guidelines.md`** — Rules for communication, code style, git workflow, and build commands.
+- **`.claude/commands/`** — Reusable Claude Code slash commands that enforce the guidelines:
+  - `english-comments` — translate non-English internal code comments to English.
+  - `clean-body-comments` — remove multi-line explanatory comment blocks from inside function/method bodies.
 
 ## Quick Setup
 

@@ -4,10 +4,15 @@
 
 Unless I specifically tell you otherwise, always speak to me in English.
 
-**User Interface & Content (Turkish):**
-All user-facing text must be in **Turkish**.
-* **Scope:** UI labels, button text, validation error messages, tooltips, notification bodies, and any string displayed on the frontend.
-* **Example:** A validation message should be *"Lütfen geçerli bir e-posta adresi giriniz"* not *"Please enter a valid email"*.
+**User Interface & Content (Localized):**
+All user-facing text must be in the project's **designated display language(s)** — never left in the internal English used by the code, and never hardcoded as an inline literal.
+* **Scope:** UI labels, button text, validation error messages, tooltips, notification bodies, and any string displayed on the frontend or admin panel.
+* **Single-language projects:** use that project's display language throughout (e.g. Turkish).
+* **Multi-language projects:** support the project's full locale set with a defined fallback locale. Whenever you add or rename a key, apply it to **all** supported locales in the same change and write the fallback-locale value first — fallback is a safety net, not a translation strategy.
+* **Keep internal values separate from localized labels** (see Internal Code Standards): store the canonical value like `in_progress` internally and resolve its label through the localization layer.
+* **Proper nouns stay untranslated** across locales — brand, product, and theme names, and third-party service names.
+* **Never hardcode user-facing strings.** Use the framework's localization mechanism (translation files, i18n catalogs, or a translatable-content layer).
+* **Example:** a validation message resolves through a key such as `validation.email`, not an inline literal like *"Lütfen geçerli bir e-posta adresi giriniz"* or *"Please enter a valid email"*.
 
 ## Code Standards
 
